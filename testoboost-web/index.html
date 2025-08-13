@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TestoBoost - Wireframes Développement</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .section {
+            background: rgba(255,255,255,0.95);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .section-title {
+            font-size: 1.8em;
+            color: #4a5568;
+            margin-bottom: 25px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .wireframe-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+        
+        .phone-frame {
+            background: #1a202c;
+            border-radius: 30px;
+            padding: 25px;
+            height: 650px;
+            position: relative;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        
+        .phone-frame::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: #4a5568;
+            border-radius: 2px;
+        }
+        
+        .phone-screen {
+            background: #ffffff;
+            border-radius: 20px;
+            height: 100%;
+            padding: 20px;
+            position: relative;
+            overflow-y: auto;
+        }
+        
+        .status-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 25px;
+            font-size: 0.8em;
+            color: #666;
+            margin-bottom: 20px;
+            padding: 0 5px;
+        }
+        
+        .screen-header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px;
+            margin: -20px -20px 20px -20px;
+            border-radius: 20px 20px 0 0;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        
+        .current-phase {
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            color: white;
+            padding: 15px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(240, 147, 251, 0.3);
+        }
+        
+        .time-display {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .phase-info {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+        
+        .action-card {
+            background: linear-gradient(135deg, #ffecd2, #fcb69f);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(252, 182, 159, 0.3);
+        }
+        
+        .action-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #8b4513;
+            margin-bottom: 8px;
+        }
+        
+        .action-desc {
+            color: #a0522d;
+            font-size: 0.9em;
+        }
+        
+        .quick-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .quick-item {
+            background: #f8f9ff;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .quick-item:hover {
+            border-color: #667eea;
+            transform: translateY(-2px);
+        }
+        
+        .quick-item.completed {
+            background: #d4edda;
+            border-color: #28a745;
+        }
+        
+        .quick-icon {
+            font-size: 1.5em;
+            margin-bottom: 8px;
+        }
+        
+        .quick-text {
+            font-size: 0.9em;
+            font-weight: 500;
+            color: #4a5568;
+        }
+        
+        .stats-row {
+            display: flex;
+            justify-content: space-between;
+            background: #f0fff4;
+            border: 2px solid #68d391;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .stat-item {
+            text-align: center;
+            flex: 1;
+        }
+        
+        .stat-value {
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #38a169;
+        }
+        
+        .stat-label {
+            font-size: 0.8em;
+            color: #68d391;
+            margin-top: 2px;
+        }
+        
+        .nav-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 70px;
+            background: #f8f9fa;
+            border-top: 1px solid #e9ecef;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            border-radius: 0 0 20px 20px;
+        }
+        
+        .nav-item {
+            text-align: center;
+            color: #6c757d;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-item.active {
+            color: #667eea;
+            background: rgba(102, 126, 234, 0.1);
+        }
+        
+        .nav-icon {
+            font-size: 1.3em;
+            margin-bottom: 2px;
+        }
+        
+        .nav-label {
+            font-size: 0.7em;
+            font-weight: 500;
+        }
+        
+        .timeline {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid #f1f3f4;
+            position: relative;
+        }
+        
+        .timeline-item:last-child {
+            border-bottom: none;
+        }
+        
+        .timeline-item.current {
+            background: rgba(102, 126, 234, 0.05);
+            border-left: 4px solid #667eea;
+        }
+        
+        .timeline-item.completed {
+            background: rgba(72, 187, 120, 0.05);
+        }
+        
+        .timeline-time {
+            font-weight: bold;
+            width: 60px;
+            font-size: 0.9em;
+            color: #4a5568;
+        }
+        
+        .timeline-content {
+            flex: 1;
+            margin-left: 15px;
+        }
+        
+        .timeline-title {
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 3px;
+        }
+        
+        .timeline-desc {
+            font-size: 0.8em;
+            color: #718096;
+        }
+        
+        .timeline-status {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8em;
+        }
+        
+        .status-pending {
+            background: #fed7d7;
+            color: #c53030;
+        }
+        
+        .status-current {
+            background: #667eea;
+            color: white;
+        }
+        
+        .status-completed {
+            background: #48bb78;
+            color: white;
+        }
+        
+        .progress-section {
+            margin-bottom: 20px;
+        }
+        
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .progress-title {
+            font-weight: 600;
+            color: #2d3748;
+        }
+        
+        .progress-percent {
+            font-size: 0.9em;
+            color: #667eea;
+            font-weight: 600;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e2e8f0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+        
+        .feature-list {
+            list-style: none;
+            margin: 15px 0;
+        }
+        
+        .feature-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #f1f3f4;
+            color: #4a5568;
+        }
+        
+        .feature-list li:before {
+            content: "✓";
+            color: #48bb78;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .info-card {
+            background: #e6fffa;
+            border: 1px solid #81e6d9;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .info-title {
+            font-weight: 600;
+            color: #234e52;
+            margin-bottom: 8px;
+        }
+        
+        .info-desc {
+            font-size: 0.9em;
+            color: #2c7a7b;
+            line-height: 1.4;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            margin: 10px 0;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🏋️‍♂️ TestoBoost</h1>
+        <p>Optimisez votre testostérone naturellement</p>
+    </div>
+
+    <div class="container">
+        <!-- ANALYSE DU CONCEPT -->
+        <div class="section">
+            <div class="section-title">
+                🎯 Analyse du concept d'application
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+                <div class="info-card">
+                    <div class="info-title">🔬 Base Scientifique</div>
+                    <div class="info-desc">
+                        • Testostérone suit un cycle circadien (pic 6h-10h)<br>
+                        • Exercice matinal = +20% production<br>
+                        • Sommeil de qualité = +15% récupération<br>
+                        • Nutrition ciblée = +25% substrats hormonaux
+                    </div>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-title">👤 Utilisateur Cible</div>
+                    <div class="info-desc">
+                        • Hommes 25-45 ans actifs<br>
+                        • Baisse d'énergie chronique<br>
+                        • Emploi du temps chargé<br>
+                        • Motivation pour optimisation santé
+                    </div>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-title">💡 Valeur Unique</div>
+                    <div class="info-desc">
+                        • Planning synchronisé avec cycle hormonal<br>
+                        • Coaching scientifique personnalisé<br>
+                        • Simplicité d'usage au quotidien<br>
+                        • Résultats mesurables
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- WIREFRAMES PRINCIPAUX -->
+        <div class="section">
+            <div class="section-title">
+                📱 Wireframes - Écrans Principaux
+            </div>
+            
+            <div class="wireframe-grid">
+                <!-- ÉCRAN PRINCIPAL -->
+                <div class="phone-frame">
+                    <div class="phone-screen">
+                        <div class="status-bar">
+                            <span>9:41</span>
+                            <span>🔋 78%</span>
+                        </div>
+                        
+                        <div class="screen-header">
+                            🏠 ACCUEIL - AUJOURD'HUI
+                        </div>
+                        
+                        <div class="current-phase">
+                            <div class="time-display">08:30</div>
+                            <div class="phase-info">🔥 PHASE PEAK TESTO (6h-10h)</div>
+                        </div>
+                        
+                        <div class="action-card">
+                            <div class="action-title">💪 ACTION PRIORITAIRE</div>
+                            <div>Entraînement Force - 35 min</div>
+                            <div class="action-desc">Moment optimal pour la production hormonale</div>
+                        </div>
+                        
+                        <div class="quick-grid">
+                            <div class="quick-item completed">
+                                <div class="quick-icon">☀️</div>
+                                <div class="quick-text">Soleil<br><small>15 min ✓</small></div>
+                            </div>
+                            <div class="quick-item">
+                                <div class="quick-icon">💧</div>
+                                <div class="quick-text">Hydratation<br><small>500ml</small></div>
+                            </div>
+                            <div class="quick-item">
+                                <div class="quick-icon">🥩</div>
+                                <div class="quick-text">Protéines<br><small>30g</small></div>
+                            </div>
+                            <div class="quick-item completed">
+                                <div class="quick-icon">😴</div>
+                                <div class="quick-text">Sommeil<br><small>8h ✓</small></div>
+                            </div>
+                        </div>
+                        
+                        <div class="stats-row">
+                            <div class="stat-item">
+                                <div class="stat-value">🔥 15</div>
+                                <div class="stat-label">Jours Streak</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">85%</div>
+                                <div class="stat-label">Énergie</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">92%</div>
+                                <div class="stat-label">Routine</div>
+                            </div>
+                        </div>
+                        
+                        <div class="info-card">
+                            <div class="info-title">💡 Conseil du jour</div>
+                            <div class="info-desc">L'entraînement matinal optimise la testostérone car elle suit votre rythme circadien naturel</div>
+                        </div>
+                        
+                        <div class="nav-bar">
+                            <div class="nav-item active">
+                                <div class="nav-icon">🏠</div>
+                                <div class="nav-label">Accueil</div>
+                            </div>
+                            <div class="nav-item">
+                                <div class="nav-icon">📊</div>
+                                <div class="nav-label">Suivi</div>
+                            </div>
+                            <div class="nav-item">
+                                <div class="nav-icon">📋</div>
+                                <div class="nav-label">Planning</div>
+                            </div>
+                            <div class="nav-item">
+                                <div class="nav-icon">📈</div>
+                                <div class="nav-label">Progrès</div>
+                            </div>
+                            <div class="nav-item">
+                                <div class="nav-icon">⚙️</div>
+                                <div class="nav-label">Profil</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- ÉCRAN SUIVI -->
+                <div class="phone-frame">
+                    <div class="phone-screen">
+                        <div class="status-bar">
+                            <span>9:41</span>
+                            <span>🔋 78%</span>
+                        </div>
+                        
+                        <div class="screen-header">
+                            📊 SUIVI QUOTIDIEN
+                        </div>
+                        
+                        <div class="progress-section">
+                            <div class="progress-header">
+                                <div class="progress-title">📅 Aujourd'hui - Mercredi</div>
+                                <div class="progress-percent">7/10 (70%)</div>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 70%;"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline">
+                            <div class="timeline-item completed">
+                                <div class="timeline-status status-completed">✓</div>
+                                <div class="timeline-time">06:00</div>
+                                <div class="timeline-content">
+                                    <div class="timeline-title">Réveil naturel</div>
+                                    <div class="timeline-desc">Sans alarme = moins de cortisol</div>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item completed">
+                                <div class="timeline-status status-completed">✓</div>
+                                <div class="timeline-time">06:30</div>
+                                <div class="timeline-content">
+                                    <div class="timeline-title">Exposition solaire</div>
+                                    <div class="timeline-desc">15 min - Vitamine D naturelle</div>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item current">
+                                <div class="timeline-status status-current">⏳</div>
+                                <div class="timeline-time">08:30</div>
+                                <div class="timeline-content">
+                                    <div class="timeline-title">Entraînement force</div>
+                                    <div class="timeline-desc">En cours - Phase optimale</div>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <div class="timeline-status status-pending">○</div>
+                                <div class="timeline-time">09:30</div>
+                                <div class="timeline-content">
+                                    <div class="timeline-title">Petit-déjeuner protéiné</div>
+                                    <div class="timeline-desc">Récupération post-entraînement</div>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <div class="timeline-status status-pending">○</div>
+                                <div class="timeline-time">12:30</div>
+                                <div class="timeline-content">
+                                    <div class="timeline-title">Déjeuner équilibré</div>
+                                    <div class="timeline-desc">Viande + légumes verts</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="stats-row" style="margin-top: 20px;">
+                            <div class="stat-item">
+                                <div class="stat-value">6</div>
+                                <div class="stat-label">Semaines</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">78%</div>
+                                <div class="stat-label">Régularité</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">+25%</div>
+                                <div class="stat-label">Énergie</div>
+                            </div>
+                        </div>
+                        
+                        <div class="nav-bar">
+                            <div class="nav-item">
+                                <div class="nav-icon">🏠</div>
+                                <div class="nav-label">Accueil</div>
+                            </div>
+                            <div class="nav-item active">
+                                <div class="nav-icon">📊</div>
+                                <div class="nav-label">Suivi</div>
+                            </div>
+                            <div class="nav-item">
+                                <div class="nav-icon">📋</div>
+                                <div class="nav-label">Planning</div>
+                            </div>
+                            <div class="nav-item">
+                                <div class="nav-icon">📈</div>
+                                <div class="nav-label">Progrès</div>
+                            </div>
+                            <div class="nav-item">
+                                <div class="nav-icon">⚙️</div>
+                                <div class="nav-label">Profil</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- ÉCRAN PLANNING -->
+                <div class="phone-frame">
+                    <div class="phone-screen">
+                        <div class="status-bar">
+                            <span>9:41</span>
+                            <span>🔋 78%</span>
+                        </div>
+                        
+                        <div class="screen-header">
+                            📋 PLANNING OPTIMISÉ
+                        </div>
+                        
+                        <div class="info-card" style="background: #fff5f5; border-color: #fed7d7;">
+                            <div class="info-title" style="color: #c53030;">🔬 Base Scientifique</div>
+                            <div class="info-desc" style="color: #9c2626;">Planning basé sur le cycle circadien de la testostérone pour maximiser les bénéfices naturels</div>
+                        </div>
+                        
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-time">06:00</div>
+                                <div class="timeline-content">
+                                    <div class="timeline-title">🌅 Réveil naturel</div>
+                                    <div class="timeline-desc">Début du pic hormonal matinal</div>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <div class="timeline-time">06:15</div>
+                                <div class="timeline-content">
+                                    <div class="timeline-title">☀️ Exposition solaire</div>
+                                    <div class="timeline-desc">15-20 min - Activation vitamine D</div>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <div class="timeline-time">07:30</div>
+                                <div class="timeline-content">
+                                    <div class="timeline-title">💪 Entraînement force</div>
+                                    <div class="timeline-desc">30-45 min - Peak testostérone</div>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <div class="timeline-time">08:30</div>
+                                <div class="timeline-content">
+                                    <div class="timeline-title">🥚 Petit-déjeuner</div>
+                                    <div class="timeline-desc">Protéines + graisses saines</div>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <div class="timeline-time">12:30</div>
+                                <div class="timeline-content">
+                                    <div class="timeline-title">🥩 Déjeuner principal</div>
+                                    <div class="timeline-desc">Viande + légumes + zinc</div>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <div class="timeline-time">22:00</div>
+                                <div class="timeline-content">
+                                    <div class="timeline-title">😴 Coucher optimal</div>
+                                    <div class="timeline-desc">7-9h pour récupération hormonale</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button class="btn-primary">📝 Personnaliser mon planning</button>
+                        
+                        <div class="nav-bar">
+                            <div class="nav-item">
+                                <div class="nav-icon">🏠</div>
+                                <div class="nav-label">Accueil</div>
+                            </div>
+                            <div class="nav-item">
+                                <div class="nav-icon">📊</div>
+                                <div class="nav-label">Suivi</div>
+                            </div>
+                            <div class="nav-item active">
+                                <div class="nav-icon">📋</div>
+                                <div class="nav-label">Planning</div>
+                            </div>
+                            <div class="nav-item">
+                                <div class="nav-icon">📈</div>
+                                <div class="nav-label">Progrès</div>
+                            </div>
+                            <div class="nav-item">
+                                <div class="nav-icon">⚙️</div>
+                                <div class="nav-label">Profil</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- ÉCRAN PROGRÈS -->
+                <div class="phone-frame">
+                    <div class="phone-screen">
+                        <div class="status-bar">
+                            <span>9:41</span>
+                            <span>🔋 78%</span>
+                        </div>
+                        
+                        <div class="screen-header">
+                            📈 PROGRÈS & ANALYTICS
+                        </div>
+                        
+                        <div class="progress-section">
+                            <div class="progress-header">
+                                <div class="progress-title">📊 Cette semaine</div>
+                                <div class="progress-percent">85% réussite</div>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="quick-grid">
+                            <div class="quick-item" style="background: #e8f5e8;">
+                                <div class="quick-icon">💪</div>
+                                <div class="quick-text"><strong>+18%</strong><br><small>Force</small></div>
+                            </div>
+                            <div class="quick-item" style="background: #fff5e6;">
+                                <div class="quick-icon">⚡</div>
+                                <div class="quick-text"><strong>+25%</strong><br><small>Énergie</small></div>
+                            </div>
+                            <div class="quick-item" style="background: #f0f8ff;">
+                                <div class="quick-icon">😴</div>
+                                <div class="quick-text"><strong>8.1h</strong><br><small>Sommeil</small></div>
+                            </div>
+                            <div class="quick-item" style="background: #fdf0ff;">
+                                <div class="quick-icon">🎯</div>
+                                <div class="quick-text"><strong>78%</strong><br><small>Régularité</small></div>
+                            </div>
+                        </div>
+                        
+                        <div style="background: #f0fff4; border: 1px solid #68d391; border-radius: 10px; padding: 15px; text-align: center; margin: 15px 0;">
+                            <div style="font-size: 2em; margin-bottom: 10px;">📈</div>
+                            <div style="font-weight: bold; color: #2d5a2d;">Graphique Énergie</div>
+                            <div style="font-size: 0.9em; color: #38a169; margin-top: 5px;">Progression sur 30 jours</div>
+                        </div>
+                        
+                        <div class="info-card" style="background: #fffaf0; border-color: #fbd38d;">
+                            <div class="info-title" style="color: #b7791f;">🏆 Réalisations</div>
+                            <ul class="feature-list" style="margin: 10px 0;">
+                                <li>Streak 15 jours consécutifs</li>
+                                <li>100% entraînements cette semaine</li>
+                                <li>Sommeil optimisé (7-9h)</li>
+                                <li>Nutrition équilibrée</li>
+                            </ul>
+                        </div>
+                        
+                        <div style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 15px; border-radius: 12px; text-align: center;">
+                            <div style="font-weight: bold; margin-bottom: 5px;">🔥 Challenge Actuel</div>
+                            <div style="font-size: 0.9em; opacity: 0.9;">30 jours routine parfaite - Jour 15/30</div>
+                        </div>
+                        
+                        <div class="nav-bar">
+                            <div class="nav-item">
+                                <div class="nav-icon">🏠</div>
+                                <div class="nav-label">Accueil</div>
+                            </div>
+                            <div class="nav-item">
+                                <div class="nav-icon">📊</div>
+                                <div class="nav-label">Suivi</div>
+                            </div>
+                            <div class="nav-item">
+                                <div class="nav-icon">📋</div>
+                                <div class="nav-label">Planning</div>
+                            </div>
+                            <div class="nav-item active">
+                                <div class="nav-icon">📈</div>
+                                <div class="nav-label">Progrès</div>
+                            </div>
+                            <div class="nav-item">
+                                <div class="nav-icon">⚙️</div>
+                                <div class="nav-label">Profil</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- ÉCRAN PROFIL -->
+                <div class="phone-frame">
+                    <div class="phone-screen">
+                        <div class="status-bar">
+                            <span>9:41</span>
+                            <span>🔋 78%</span>
+                        </div>
+                        
+                        <div class="screen-header">
+                            ⚙️ PROFIL & PARAMÈTRES
+                        </div>
+                        
+                        <div style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 20px; border-radius: 15px; text-align: center; margin-bottom: 20px;">
+                            <div style="font-size: 3em; margin-bottom: 10px;">👤</div>
+                            <div style="font-size: 1.3em; font-weight: bold;">Marc Dubois</div>
+                            <div style="font-size: 0.9em; opacity: 0.9; margin-top: 5px;">32 ans • 78kg • Niveau: Intermédiaire</div>
+                            <div style="font-size: 0.8em; opacity: 0.8; margin-top: 8px;">Membre depuis 45 jours</div>
+                        </div>
+                        
+                        <div style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.05); margin-bottom: 15px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; padding: 15px; border-bottom: 1px solid #f1f3f4;">
+                                <span style="color: #4a5568; font-weight: 500;">🔔 Notifications intelligentes</span>
+                                <div class="toggle" style="background: #48bb78;"></div>
+                            </div>
+                            
+                            <div style="display: flex; justify-content: space-between; align-items: center; padding: 15px; border-bottom: 1px solid #f1f3f4;">
+                                <span style="color: #4a5568; font-weight: 500;">📱 Sync montres connectées</span>
+                                <div class="toggle" style="background: #48bb78;"></div>
+                            </div>
+                            
+                            <div style="display: flex; justify-content: space-between; align-items: center; padding: 15px; border-bottom: 1px solid #f1f3f4;">
+                                <span style="color: #4a5568; font-weight: 500;">⏰ Planning personnalisé</span>
+                                <span style="color: #667eea; font-weight: 600;">></span>
+                            </div>
+                            
+                            <div style="display: flex; justify-content: space-between; align-items: center; padding: 15px; border-bottom: 1px solid #f1f3f4;">
+                                <span style="color: #4a5568; font-weight: 500;">🎯 Objectifs personnels</span>
+                                <span style="color: #667eea; font-weight: 600;">></span>
+                            </div>
+                            
+                            <div style="display: flex; justify-content: space-between; align-items: center; padding: 15px;">
+                                <span style="color: #4a5568; font-weight: 500;">🩺 Données de santé</span>
+                                <span style="color: #667eea; font-weight: 600;">></span>
+                            </div>
+                        </div>
+                        
+                        <div style="background: linear-gradient(135deg, #ffd89b, #19547b); color: white; padding: 15px; border-radius: 12px; text-align: center; margin-bottom: 15px;">
+                            <div style="font-weight: bold; font-size: 1.1em; margin-bottom: 5px;">🌟 Version Premium</div>
+                            <div style="font-size: 0.9em; opacity: 0.9; margin-bottom: 10px;">Analytics avancés • Coach IA • Recettes premium</div>
+                            <button style="background: rgba(255,255,255,0.9); color: #19547b; border: none; padding: 8px 16px; border-radius: 20px; font-weight: 600; cursor: pointer;">7 jours gratuits</button>
+                        </div>
+                        
+                        <div style="background: #f8f9ff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 15px; text-align: center;">
+                            <div style="font-weight: 600; color: #4a5568; margin-bottom: 8px;">👥 Communauté TestoBoost</div>
+                            <div style="font-size: 0.9em; color: #718096; margin-bottom: 12px;">Rejoignez 25,000+ hommes motivés</div>
+                            <button class="btn-primary" style="margin: 0;">Rejoindre la communauté</button>
+                        </div>
+                        
+                        <div class="nav-bar">
+                            <div class="nav-item">
+                                <div class="nav-icon">🏠</div>
+                                <div class="nav-label">Accueil</div>
+                            </div>
+                            <div class="nav-item">
+                                <div class="nav-icon">📊</div>
+                                <div class="nav-label">Suivi</div>
+                            </div>
+                            <div class="nav-item">
+                                <div class="nav-icon">📋</div>
+                                <div class="nav-label">Planning</div>
+                            </div>
+                            <div class="nav-item">
+                                <div class="nav-icon">📈</div>
+                                <div class="nav-label">Progrès</div>
+                            </div>
+                            <div class="nav-item active">
+                                <div class="nav-icon">⚙️</div>
+                                <div class="nav-label">Profil</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ARCHITECTURE TECHNIQUE -->
+        <div class="section">
+            <div class="section-title">
+                🔧 Architecture Technique & Développement
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+                <div class="info-card">
+                    <div class="info-title">📱 Stack Technique Recommandé</div>
+                    <ul class="feature-list">
+                        <li><strong>Frontend:</strong> React Native / Flutter</li>
+                        <li><strong>Backend:</strong> Node.js + Express</li>
+                        <li><strong>Base de données:</strong> MongoDB / PostgreSQL</li>
+                        <li><strong>Notifications:</strong> Firebase Cloud Messaging</li>
+                        <li><strong>Analytics:</strong> Firebase Analytics</li>
+                        <li><strong>Auth:</strong> Firebase Auth / Auth0</li>
+                    </ul>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-title">🗂️ Modèle de Données Principal</div>
+                    <ul class="feature-list" style="font-size: 0.85em;">
+                        <li><strong>User Profile:</strong> Age, weight, goals, preferences</li>
+                        <li><strong>Daily Habits:</strong> Exercise, nutrition, sleep, sun</li>
+                        <li><strong>Schedule:</strong> Personalized timeline, notifications</li>
+                        <li><strong>Analytics:</strong> Energy levels, progress, streaks</li>
+                        <li><strong>Content:</strong> Tips, recipes, educational content</li>
+                        <li><strong>Wearables:</strong> Heart rate, sleep, activity data</li>
+                    </ul>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-title">🚀 Roadmap de Développement</div>
+                    <div style="font-size: 0.9em; line-height: 1.6;">
+                        <strong>Phase 1 (MVP - 3 mois):</strong><br>
+                        • Onboarding + profil utilisateur<br>
+                        • Planning circadien de base<br>
+                        • Tracking habitudes simples<br>
+                        • Notifications intelligentes<br><br>
+                        
+                        <strong>Phase 2 (3-6 mois):</strong><br>
+                        • Analytics & graphiques<br>
+                        • Base de conseils/recettes<br>
+                        • Système de challenges<br>
+                        • Sync montres connectées<br><br>
+                        
+                        <strong>Phase 3 (6+ mois):</strong><br>
+                        • IA personnalisée<br>
+                        • Communauté/social<br>
+                        • Version premium<br>
+                        • Coach virtuel avancé
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FONCTIONNALITÉS DÉTAILLÉES -->
+        <div class="section">
+            <div class="section-title">
+                ⚙️ Fonctionnalités Détaillées par Écran
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+                <div class="info-card" style="background: #f0f8ff; border-color: #add8e6;">
+                    <div class="info-title" style="color: #1e3a8a;">🏠 ACCUEIL - Fonctionnalités</div>
+                    <ul class="feature-list">
+                        <li>Heure actuelle + phase hormonale</li>
+                        <li>Action prioritaire contextuelle</li>
+                        <li>Quick check habitudes (4 principales)</li>
+                        <li>Streak counter motivation</li>
+                        <li>Conseil scientifique du jour</li>
+                        <li>Météo pour exposition solaire</li>
+                        <li>Énergie estimée en temps réel</li>
+                    </ul>
+                </div>
+                
+                <div class="info-card" style="background: #f0fff4; border-color: #90ee90;">
+                    <div class="info-title" style="color: #065f46;">📊 SUIVI - Fonctionnalités</div>
+                    <ul class="feature-list">
+                        <li>Timeline quotidienne interactive</li>
+                        <li>Statut temps réel des habitudes</li>
+                        <li>Pourcentage complétion jour/semaine</li>
+                        <li>Historique 7 derniers jours</li>
+                        <li>Rappels intelligents manqués</li>
+                        <li>Analytics hebdomadaires</li>
+                        <li>Ajustements automatiques</li>
+                    </ul>
+                </div>
+                
+                <div class="info-card" style="background: #fffaf0; border-color: #ffd700;">
+                    <div class="info-title" style="color: #b45309;">📋 PLANNING - Fonctionnalités</div>
+                    <ul class="feature-list">
+                        <li>Planning circadien scientifique</li>
+                        <li>Explications pour chaque créneaux</li>
+                        <li>Personnalisation horaires</li>
+                        <li>Adaptation automatique</li>
+                        <li>Mode weekend différent</li>
+                        <li>Intégration calendrier</li>
+                        <li>Alertes préventives</li>
+                    </ul>
+                </div>
+                
+                <div class="info-card" style="background: #fdf2f8; border-color: #f48fb1;">
+                    <div class="info-title" style="color: #831843;">📈 PROGRÈS - Fonctionnalités</div>
+                    <ul class="feature-list">
+                        <li>Graphiques énergie/force/sommeil</li>
+                        <li>KPI testostérone estimée</li>
+                        <li>Système achievements</li>
+                        <li>Challenges 30/60/90 jours</li>
+                        <li>Comparaisons périodiques</li>
+                        <li>Export données PDF</li>
+                        <li>Corrélations habitudes/résultats</li>
+                    </ul>
+                </div>
+                
+                <div class="info-card" style="background: #f5f3ff; border-color: #c4b5fd;">
+                    <div class="info-title" style="color: #5b21b6;">⚙️ PROFIL - Fonctionnalités</div>
+                    <ul class="feature-list">
+                        <li>Profil utilisateur complet</li>
+                        <li>Paramètres notifications</li>
+                        <li>Sync wearables (Fitbit, Apple)</li>
+                        <li>Objectifs personnalisés</li>
+                        <li>Données santé (optionnel)</li>
+                        <li>Gestion premium</li>
+                        <li>Communauté & support</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- PROCHAINES ÉTAPES -->
+        <div class="section">
+            <div class="section-title">
+                🎯 Prochaines Étapes de Développement
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+                <div style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 25px; border-radius: 15px;">
+                    <div style="font-size: 1.5em; margin-bottom: 15px;">🎨 Étape 1: Design UI/UX</div>
+                    <ul style="list-style: none; line-height: 1.8;">
+                        <li>• Créer moodboard & palette couleurs</li>
+                        <li>• Designer les mockups haute fidélité</li>
+                        <li>• Prototyper les interactions</li>
+                        <li>• Tester l'expérience utilisateur</li>
+                        <li>• Valider l'accessibilité</li>
+                    </ul>
+                </div>
+                
+                <div style="background: linear-gradient(135deg, #ffecd2, #fcb69f); color: #8b4513; padding: 25px; border-radius: 15px;">
+                    <div style="font-size: 1.5em; margin-bottom: 15px;">⚙️ Étape 2: Architecture Tech</div>
+                    <ul style="list-style: none; line-height: 1.8;">
+                        <li>• Setup environnement développement</li>
+                        <li>• Architecture base de données</li>
+                        <li>• APIs backend essentielles</li>
+                        <li>• Setup CI/CD pipeline</li>
+                        <li>• Tests unitaires framework</li>
+                    </ul>
+                </div>
+                
+                <div style="background: linear-gradient(135deg, #a8edea, #fed6e3); color: #2d3748; padding: 25px; border-radius: 15px;">
+                    <div style="font-size: 1.5em; margin-bottom: 15px;">🚀 Étape 3: Développement MVP</div>
+                    <ul style="list-style: none; line-height: 1.8;">
+                        <li>• Développer écrans principaux</li>
+                        <li>• Implémenter tracking de base</li>
+                        <li>• Système notifications</li>
+                        <li>• Tests utilisateurs alpha</li>
+                        <li>• Itérations & améliorations</li>
+                    </ul>
+                </div>
+                
+                <div style="background: linear-gradient(135deg, #ffd89b, #19547b); color: white; padding: 25px; border-radius: 15px;">
+                    <div style="font-size: 1.5em; margin-bottom: 15px;">📊 Étape 4: Analytics & Optimisation</div>
+                    <ul style="list-style: none; line-height: 1.8;">
+                        <li>• Intégration analytics</li>
+                        <li>• A/B testing features</li>
+                        <li>• Performance optimization</li>
+                        <li>• Feedback utilisateurs</li>
+                        <li>• Préparation lancement public</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

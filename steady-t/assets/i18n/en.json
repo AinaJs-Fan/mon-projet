@@ -1,0 +1,28 @@
+{
+	"app": {
+		"title": "Steady T: Everyday Testosterone Coach",
+		"tagline": "Strong body, steady mind"
+	},
+	"actions": {
+		"continue": "Continue",
+		"start": "Start",
+		"save": "Save",
+		"skip": "Skip",
+		"done": "Done",
+		"iOnlyHave10Min": "I only have 10 minutes"
+	},
+	"welcome": {
+		"headline": "Welcome to Steady T",
+		"explainer": "Simple, science-guided routines to get stronger, sleep better, and dial in protein—without calorie obsessions.",
+		"consent": "By continuing you agree to our Terms and Privacy. This is educational and not medical advice."
+	},
+	"tabs": {
+		"today": "Today",
+		"plan": "Plan",
+		"nutrition": "Nutrition",
+		"habits": "Habits",
+		"insights": "Insights",
+		"learn": "Learn",
+		"care": "Care"
+	}
+}

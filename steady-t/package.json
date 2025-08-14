@@ -1,0 +1,41 @@
+{
+  "name": "steady-t",
+  "version": "1.0.0",
+  "main": "expo-router/entry",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web"
+  },
+  "dependencies": {
+    "@react-native-async-storage/async-storage": "^2.2.0",
+    "dayjs": "^1.11.13",
+    "expo": "~53.0.20",
+    "expo-file-system": "^18.1.11",
+    "expo-localization": "^16.1.6",
+    "expo-notifications": "^0.31.4",
+    "expo-print": "^14.1.4",
+    "expo-router": "^5.1.4",
+    "expo-sharing": "^13.1.5",
+    "expo-speech": "^13.1.7",
+    "expo-sqlite": "^15.2.14",
+    "expo-status-bar": "~2.2.3",
+    "i18next": "^25.3.4",
+    "react": "19.0.0",
+    "react-i18next": "^15.6.1",
+    "react-native": "0.79.5",
+    "react-native-svg": "^15.12.1",
+    "uuid": "^11.1.0",
+    "victory-native": "^41.19.2",
+    "zod": "^4.0.17",
+    "zustand": "^5.0.7"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.25.2",
+    "@types/react": "~19.0.10",
+    "@types/uuid": "^10.0.0",
+    "typescript": "~5.8.3"
+  },
+  "private": true
+}

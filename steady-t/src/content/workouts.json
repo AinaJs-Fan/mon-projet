@@ -1,0 +1,5 @@
+[
+	{ "id": "bw_full_10", "title": "Bodyweight Micro", "duration": 10, "equipment": "none", "blocks": ["breathing", "pushups", "squats", "walk"] },
+	{ "id": "band_full_20", "title": "Band Full-Body 20", "duration": 20, "equipment": "band", "blocks": ["row", "press", "hinge", "squat"] },
+	{ "id": "db_push_pull_40", "title": "DB Push/Pull 40", "duration": 40, "equipment": "dumbbell", "blocks": ["row", "press", "lunge", "hinge"] }
+]

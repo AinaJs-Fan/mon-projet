@@ -1,0 +1,5 @@
+[
+	{ "id": "us_budget", "culture": "US", "tier": "budget", "plate": "Chicken thighs, rice, broccoli, olive oil" },
+	{ "id": "ind_mid", "culture": "India", "tier": "mid", "plate": "Dal, roti, curd, sautéed greens" },
+	{ "id": "mex_prem", "culture": "Mexico", "tier": "premium", "plate": "Carne asada, corn tortillas, pico, avocado" }
+]

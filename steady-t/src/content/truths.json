@@ -1,0 +1,16 @@
+[
+	{
+		"id": "sleep_7h",
+		"title": "Sleep 7+ hours",
+		"body": "Most men do better with 7–9 hours. Consistent bed/wake times help hormones and recovery.",
+		"citations": ["AUA", "JAMA Network"],
+		"links": ["academic.oup.com", "https://www.auanet.org/"]
+	},
+	{
+		"id": "protein_1_6",
+		"title": "Protein ≈1.6 g/kg",
+		"body": "A practical target for muscle and satiety without calorie counting.",
+		"citations": ["Nature"],
+		"links": ["https://www.nature.com/"]
+	}
+]
